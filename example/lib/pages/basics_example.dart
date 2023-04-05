@@ -56,7 +56,9 @@ class _TableBasicsExampleState extends State<TableBasicsExample> {
             });
           }
         },
-        onTodayButtonTap: () {},
+        onTodayButtonTap: (day) {
+
+        },
         onPageChanged: (focusedDay) {
           // No need to call `setState()` here
           _focusedDay = focusedDay;

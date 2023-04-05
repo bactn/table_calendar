@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import '../shared/utils.dart' show CalendarFormat;
 
 class TodayButton extends StatelessWidget {
-  final VoidCallback? onTap;
+  final ValueChanged<DateTime>? onTap;
   final TextStyle textStyle;
   final String textButton;
   final BoxDecoration decoration;
@@ -39,14 +39,14 @@ class TodayButton extends StatelessWidget {
     return !kIsWeb &&
             (platform == TargetPlatform.iOS || platform == TargetPlatform.macOS)
         ? CupertinoButton(
-            onPressed: () => onTap,
+          onPressed: () => onTap != null ? onTap!(DateTime.now()) : (){},
             padding: EdgeInsets.zero,
             child: child,
           )
         : InkWell(
             borderRadius:
                 decoration.borderRadius?.resolve(Directionality.of(context)),
-            onTap: () => onTap,
+            onTap: () => onTap != null ? onTap!(DateTime.now()) : (){},
             child: child,
           );
   }
