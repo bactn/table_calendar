@@ -201,7 +201,7 @@ class TableCalendar<T> extends StatefulWidget {
   /// Called whenever `calendarFormat` is changed.
   final void Function(CalendarFormat format)? onFormatChanged;
 
-  final void Function()? onTodayButtonTap;
+  final void Function(DateTime day)? onTodayButtonTap;
 
   /// Called when the calendar is created. Exposes its PageController.
   final void Function(PageController pageController)? onCalendarCreated;
@@ -461,7 +461,9 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
                 focusedMonth: value,
                 onLeftChevronTap: _onLeftChevronTap,
                 onRightChevronTap: _onRightChevronTap,
-                onTodayButtonTap: widget.onTodayButtonTap,
+                onTodayButtonTap: (day) {
+                  widget.onTodayButtonTap?.call(day);
+                },
                 onHeaderTap: () => widget.onHeaderTapped?.call(value),
                 onHeaderLongPress: () =>
                     widget.onHeaderLongPressed?.call(value),
