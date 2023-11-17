@@ -88,6 +88,12 @@ class HeaderStyle {
   /// Determines right chevron's visibility.
   final bool rightChevronVisible;
 
+  /// Determines left chevron's enable.
+  final bool leftChevronEnable;
+
+  /// Determines right chevron's enable.
+  final bool rightChevronEnable;
+
   /// Decoration of the header.
   final BoxDecoration decoration;
 
@@ -115,6 +121,8 @@ class HeaderStyle {
     this.rightChevronIcon = const Icon(Icons.chevron_right),
     this.leftChevronVisible = true,
     this.rightChevronVisible = true,
+    this.rightChevronEnable = true,
+    this.leftChevronEnable = true,
     this.decoration = const BoxDecoration(),
     this.todayButtonText = "Today",
     this.todayButtonVisible = false,
